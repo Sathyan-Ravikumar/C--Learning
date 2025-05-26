@@ -13,7 +13,7 @@ namespace C__Learning
         public string Name { get; set; }
         public Address HomeAddress { get; set; }
         public StudentStatus Status { get; set; }
-
+        public HashSet<string> Skills { get; set; } = new HashSet<string>();
         public override string ToString()
         {
             return $"{Id} - {Name}, {HomeAddress.City}, {Status}";

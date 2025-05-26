@@ -1,4 +1,5 @@
 ﻿using C__Learning;
+using System.Runtime.Intrinsics.Arm;
 
 List<Student> students = new List<Student>();
 
@@ -8,7 +9,9 @@ students.Add(new Student
     Id = 1,
     Name = "Sathyan",
     HomeAddress = new Address("Coimbatore", "Tamil Nadu"),
-    Status = StudentStatus.Active
+    Status = StudentStatus.Active,
+    Skills = { "C#", "React", "Angular" }
+
 });
 
 students.Add(new Student
@@ -16,8 +19,10 @@ students.Add(new Student
     Id = 2,
     Name = "Arun",
     HomeAddress = new Address("Salem", "Tamil Nadu"),
-    Status = StudentStatus.Graduated
+    Status = StudentStatus.Graduated,
+    Skills = {"C#","SQL","C#"}
 });
+
 
 //Dictionary to lookup by ID
 
@@ -31,9 +36,21 @@ foreach (var student in students)
 
 Console.WriteLine("All Students:");
 
-foreach (var s in students)
+/*foreach (var s in students)
 {
     Console.WriteLine(s);
+}*/
+
+// display all the students with skills stored in hashset
+foreach (var student in students)
+{
+    Console.WriteLine(student);
+
+    Console.WriteLine("Skills:");
+    foreach (var skill in student.Skills)
+    {
+        Console.WriteLine($" - {skill}");
+    }
 }
 
 //Value vs Reference 
