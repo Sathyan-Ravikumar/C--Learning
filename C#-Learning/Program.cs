@@ -1,6 +1,7 @@
-﻿using C__Learning.Value_Reference_Type_and_Generic_Collections;
+﻿using C__Learning;
+using C__Learning.Value_Reference_Type_and_Generic_Collections;
 
-var type = typeof(ITypesAndCollections);
+var type = typeof(ILearnInterface);
 var types = AppDomain.CurrentDomain.GetAssemblies()
     .SelectMany(s => s.GetTypes())
     .Where(p => type.IsAssignableFrom(p) && !p.IsInterface);
@@ -29,5 +30,5 @@ if (topic > types.Count() - 1)
 
 Console.WriteLine($"\n\nTopic {types.ElementAt(topic).FullName} has been selected..\nExecuting now...\n\n");
 
-ITypesAndCollections instance = Activator.CreateInstance(types.ElementAt(topic)) as ITypesAndCollections;
-instance.ValueTypeReferenceTypeAndGenericCollections();
+ILearnInterface instance = Activator.CreateInstance(types.ElementAt(topic)) as ILearnInterface;
+instance.Run();

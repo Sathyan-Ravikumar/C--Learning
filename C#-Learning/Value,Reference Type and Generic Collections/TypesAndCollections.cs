@@ -1,8 +1,9 @@
-﻿using C__Learning.Value_Reference_Type_and_Generic_Collections;
+﻿using C__Learning;
+using C__Learning.Value_Reference_Type_and_Generic_Collections;
 
-public class TypesAndCollections : ITypesAndCollections
+public class TypesAndCollections : ILearnInterface
 {
-    public void ValueTypeReferenceTypeAndGenericCollections()
+    public void Run()
     {
         List<Student> students = new List<Student>();
 
