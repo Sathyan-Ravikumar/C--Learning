@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace C__Learning.String
+namespace C__Learning.StringMethods
 {
     public class InbuiltStringMethods : ILearnInterface 
     {
