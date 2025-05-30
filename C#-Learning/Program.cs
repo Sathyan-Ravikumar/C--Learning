@@ -1,5 +1,4 @@
 ﻿using C__Learning;
-using C__Learning.Value_Reference_Type_and_Generic_Collections;
 
 var type = typeof(ILearnInterface);
 var types = AppDomain.CurrentDomain.GetAssemblies()
@@ -8,18 +7,19 @@ var types = AppDomain.CurrentDomain.GetAssemblies()
 
 for (int i = 0; i < types.Count(); i++)
 {
-    Console.WriteLine($"{i} => {types.ElementAt(i)}");
+    Console.WriteLine($"{i} => {types.ElementAt(i).Name}");
 }
 
 Console.WriteLine("Enter topic # to start");
 var result = Console.ReadKey().KeyChar;
 Console.WriteLine("\nProcessing Input....");
-if (!char.IsDigit(result))
 
+if (!char.IsDigit(result))
 {
     Console.WriteLine("That is not a number key! Exiting...");
     return;
 }
+
 var topic = Convert.ToInt32(result - '0');
 
 if (topic > types.Count() - 1)
@@ -28,7 +28,7 @@ if (topic > types.Count() - 1)
     return;
 }
 
-Console.WriteLine($"\n\nTopic {types.ElementAt(topic).FullName} has been selected..\nExecuting now...\n\n");
+Console.WriteLine($"\n\nTopic {types.ElementAt(topic).Name} has been selected..\nExecuting now...\n\n");
 
 ILearnInterface instance = Activator.CreateInstance(types.ElementAt(topic)) as ILearnInterface;
 instance.Run();
