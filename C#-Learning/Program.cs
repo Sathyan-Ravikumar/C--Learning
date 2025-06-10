@@ -11,16 +11,22 @@ for (int i = 0; i < types.Count(); i++)
 }
 
 Console.WriteLine("Enter topic # to start");
-var result = Console.ReadKey().KeyChar;
+
+//var result = Console.ReadKey().KeyChar;
+var result = Console.ReadLine();
 Console.WriteLine("\nProcessing Input....");
 
-if (!char.IsDigit(result))
+//if (!char.IsDigit(result))
+
+    if (!int.TryParse(result,out int num))
 {
     Console.WriteLine("That is not a number key! Exiting...");
     return;
 }
 
-var topic = Convert.ToInt32(result - '0');
+//var topic = Convert.ToInt32(result - '0');
+
+var topic = Convert.ToInt32(result);
 
 if (topic > types.Count() - 1)
 {
