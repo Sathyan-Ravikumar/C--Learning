@@ -1,5 +1,6 @@
 ﻿using C__Learning;
 
+
 var type = typeof(ILearnInterface);
 var types = AppDomain.CurrentDomain.GetAssemblies()
     .SelectMany(s => s.GetTypes())
@@ -35,6 +36,7 @@ if (topic > types.Count() - 1)
 }
 
 Console.WriteLine($"\n\nTopic {types.ElementAt(topic).Name} has been selected..\nExecuting now...\n\n");
+
 
 ILearnInterface instance = Activator.CreateInstance(types.ElementAt(topic)) as ILearnInterface;
 instance.Run();
